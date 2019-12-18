@@ -3,6 +3,10 @@
 int main()
 
 {
-	printf("Hello World!\n");
-	return 0;
+
+printf("Hello World!\n");
+printf("CCA\n");
+printf("APCSP\n");
+return 0;
+
 }
