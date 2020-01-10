@@ -1,52 +1,51 @@
 #include <stdio.h>
-#include <string.h>
 
 struct Student
 {
-  char first[50];
-  char last[50];
-  int age;
-  int studentid;
+	char firstname[15];
+	char lastname[15];
+	int age;
+	int studentid;
 };
 
 void printStudent(struct Student* student)
 {
-  printf("Name: %s %s\n", student->first, student->last);
-  printf("Age: %d\n", student->age);
-  printf("StudentID: %d\n", student->studentid);
-}
+	printf(("The first name is %s\n"),student -> firstname);
+	printf(("The last name is %s\n"), student -> lastname);
+	printf(("The age is %d\n"), student -> age);
+	printf(("The student ID is %d\n"), student -> studentid);
+};
 
 int main()
 {
+	char input[256];
+	int num;
+	printf("How many students do you want to input?\n");
+	fgets (input, 256, stdin);
+	sscanf(input, "%d", &num);
+	struct Student studentArr[num];
+	for (int i = 0; i < num; i++)
+	{
+		printf("What is your first name?\n");
+		fgets(input, 256, stdin);
+		sscanf(input, "%s\n", &studentArr[i].firstname);
 
-  char input[256];
-  struct Student student1;
-  struct Student student2;
+		printf("What is your last name?\n");
+		fgets(input, 256, stdin);
+		sscanf(input, "%s\n", &studentArr[i].lastname);
 
-  strcpy(student1.first, "Stephanie");
-  strcpy(student1.last, "Snyder");
-  student1.age = 17;
-  student1.studentid = 908992;
+		printf("What is your age?\n");
+		fgets(input, 256, stdin);
+		sscanf(input, "%d\n", &studentArr[i].age);
 
-  printf("What is your first name?\n");
-  fgets(input, 256, stdin);
-  sscanf(input, "%s", student2.first);
+		printf("What is your student ID?\n");
+		fgets(input, 256, stdin);
+		sscanf(input, "%d\n", &studentArr[i].studentid);
 
-  printf("What is your last name?\n");
-  fgets(input, 256, stdin);
-  sscanf(input, "%s", student2.last);
+	}
+	for (int i = 0; i < num; i++)
+	{
+		printStudent(&studentArr[0]);
+	}
 
-  printf("What is your age?\n");
-  fgets(input, 256, stdin);
-  sscanf(input, "%d", &student2.age);
-
-  printf("What is your StudentID?\n");
-  fgets(input, 256, stdin);
-  sscanf(input, "%d", &student2.studentid);
-
-  printStudent(&student1);
-  printStudent(&student2);
-
-
-  return 0;
 }
