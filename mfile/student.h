@@ -1,9 +1,8 @@
-struct Student
-{
-  char first[50];
-  char last[50];
-  int age;
-  int studentid;
+struct Student {
+    char firstname[30];
+    char lastname[30];
+    int age;
+    int studentid;
 };
+void printStudent();
 
-void printStudent(struct Student* student)
